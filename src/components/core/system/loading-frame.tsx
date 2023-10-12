@@ -1,17 +1,11 @@
-"user client";
+"use client";
 
 import React from "react";
 
 import { Spinner } from "@phosphor-icons/react";
 
-import TemplateFrame from "./template-frame";
-
 const LoadingFrame: React.FC = () => {
-	return (
-		<TemplateFrame>
-			<Spinner size={32} className="animate-spin" />
-		</TemplateFrame>
-	);
+	return <Spinner size={48} className="animate-spin" />;
 };
 
 export default LoadingFrame;

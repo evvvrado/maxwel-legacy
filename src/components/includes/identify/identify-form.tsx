@@ -59,6 +59,8 @@ const IdentifyForm: React.FC = () => {
 						placeholder="Type here."
 						className="input"
 						aria-label="Your summoner's name."
+						disabled={isLoading}
+						aria-disabled={isLoading}
 						{...register("summonerName", { required: true })}
 					/>
 				</Form.Label>
