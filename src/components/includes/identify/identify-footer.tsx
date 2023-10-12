@@ -25,7 +25,7 @@ const IdentifyFooter: React.FC = () => {
 				</p>
 
 				<span className="text-xs w-full block text-gray-400  text-right">
-					0.0.1v @
+					{process.env.NEXT_PUBLIC_VERSION}v @
 					<Link
 						href={"https://x.com/evvvrado"}
 						target="_blank"

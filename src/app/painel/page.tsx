@@ -32,7 +32,7 @@ const Painel: NextPage = () => {
 			<main className="w-full max-w-painel mx-auto pt-24">
 				<div className="mb-8">
 					<span className="py-1 px-2 rounded-full mb-4 block w-fit bg-success/30 border-gray-950/25 text-gray-950/30 dark:text-success font-bold border border-solid ">
-						0.0.2v Release!!
+						{process.env.NEXT_PUBLIC_VERSION}v Release!!
 					</span>
 
 					<h1 className="text-5xl font-bold text-gray-950 mb-2 dark:text-gray-50 ">

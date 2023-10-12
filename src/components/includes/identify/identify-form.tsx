@@ -27,6 +27,16 @@ const IdentifyForm: React.FC = () => {
 			setIsLoading(false);
 		}
 	};
+	const handleNoSummonerName = async () => {
+		setSummoner({
+			accountId: "",
+			puuid: "",
+			name: "",
+			profileIconId: 1,
+			revisionDate: 0,
+			summonerLevel: 0,
+		});
+	};
 
 	return (
 		<div className=" max-w-xl m-auto w-full h-full flex-col justify-center flex mt-72">
@@ -70,9 +80,12 @@ const IdentifyForm: React.FC = () => {
 				</Form.Info>
 			)}
 
-			<span className="w-full text-xs text-gray-600 mt-2 underline underline-offset-4 cursor-pointer hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100">
+			<button
+				onClick={handleNoSummonerName}
+				className="w-fit text-xs text-gray-600 mt-2 underline underline-offset-4 cursor-pointer hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
+			>
 				I choose not to answer this question.
-			</span>
+			</button>
 		</div>
 	);
 };
