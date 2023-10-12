@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img {
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: optimize-contrast;
+	image-rendering: pixelated;
+	-ms-interpolation-mode: nearest-neighbor;
+}
+
+html {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	overscroll-behavior: none;
+	overflow: overlay;
+}
+html.dark .grid-bg {
+	--color-background: rgba(255, 255, 255, 0.25);
+}
+
+.grid-bg {
+	--color-background: rgba(0, 0, 0, 0.25);
+	position: relative;
+}
+
+.grid-bg::before {
+	@apply pointer-events-none absolute inset-0 -top-28 z-[-1] mx-auto my-0 h-[60%] w-full max-w-[192rem] bg-[center_top] bg-repeat opacity-30 content-[""];
+	background: linear-gradient(
+			to right,
+			var(--color-background) 1px,
+			transparent 1px
+		),
+		linear-gradient(to bottom, var(--color-background) 1px, transparent 1px);
+	background-size: 24px 24px;
+
+	mask-image: radial-gradient(
+		47.98% 47.98% at 50% 50%,
+		#d9d9d9 0%,
+		rgba(217, 217, 217, 0) 100%
+	);
+}

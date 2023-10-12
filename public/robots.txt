@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Disallow: /404
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://link.com
+
+# Sitemaps
+Sitemap: https://link.com/sitemap.xml

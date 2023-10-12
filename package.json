@@ -1,0 +1,60 @@
+{
+	"name": "maxwel",
+	"version": "0.0.1",
+	"private": true,
+	"author": {
+		"url": "https://x.com/evvvrado",
+		"email": "everaldocrj@gmail.com",
+		"name": "Everaldo Júnior"
+	},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@phosphor-icons/react": "^2.0.10",
+		"@types/node": "20.6.0",
+		"@types/react": "18.2.21",
+		"@types/react-dom": "18.2.7",
+		"autoprefixer": "10.4.15",
+		"eslint": "8.49.0",
+		"eslint-config-next": "13.4.19",
+		"framer-motion": "^10.16.4",
+		"jack-o-hook": "^1.0.5",
+		"next": "13.4.19",
+		"next-themes": "^0.2.1",
+		"openai-edge": "^1.2.2",
+		"postcss": "8.4.29",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-hook-form": "^7.46.1",
+		"sonner": "^1.0.3",
+		"tailwind-merge": "^1.14.0",
+		"tailwindcss": "3.3.3",
+		"typescript": "5.2.2"
+	},
+	"devDependencies": {
+		"@commitlint/config-conventional": "^17.7.0",
+		"@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+		"@typescript-eslint/eslint-plugin": "^6.7.0",
+		"commitizen": "^4.3.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-no-comments": "^1.1.10",
+		"eslint-plugin-prettier": "^5.0.0",
+		"husky": "^8.0.3",
+		"prettier": "^3.0.3",
+		"prettier-plugin-tailwindcss": "^0.5.4"
+	},
+	"eslintConfig": {
+		"eslintConfig": {
+			"extends": "./.eslintrc.json"
+		}
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	}
+}
