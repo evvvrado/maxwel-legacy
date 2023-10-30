@@ -3,40 +3,21 @@
 import React from "react";
 
 import { ArrowRight } from "@phosphor-icons/react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
-import { getSummoner } from "@/api/riot-api";
 import * as Form from "@/components/core/system/form";
-import { useSummoner } from "@/providers/summoner-provider";
+import { useIdentifyForm } from "@/hooks/use-identify-form";
 
 const IdentifyForm: React.FC = () => {
 	const { register, handleSubmit, formState } = useForm();
-	const { setSummoner, isSummonerLoading } = useSummoner();
 
-	const [apiError, setApiError] = React.useState<CustomError>();
-	const [isLoading, setIsLoading] = React.useState(false);
-
-	const handleSummonerName = async (data: FieldValues) => {
-		setIsLoading(true);
-		try {
-			const requestedData = await getSummoner(data.summonerName);
-			setSummoner(requestedData);
-		} catch (error) {
-			setApiError(error as CustomError);
-		} finally {
-			setIsLoading(false);
-		}
-	};
-	const handleNoSummonerName = async () => {
-		setSummoner({
-			accountId: "",
-			puuid: "",
-			name: "",
-			profileIconId: 1,
-			revisionDate: 0,
-			summonerLevel: 0,
-		});
-	};
+	const {
+		handleNoSummonerName,
+		handleSummonerName,
+		isLoading,
+		isSummonerLoading,
+		apiError,
+	} = useIdentifyForm();
 
 	return (
 		<div className=" max-w-xl m-auto w-full h-full flex-col justify-center flex mt-72">

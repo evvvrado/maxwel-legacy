@@ -1,9 +1,14 @@
 import React from "react";
 
+import { Icon as IconType, Spinner } from "@phosphor-icons/react";
+
 import { cn } from "@/app/styles/mixins";
 
 type FlatButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
 	loading?: boolean;
+	text: string;
+	loadingText: string;
+	icon?: IconType;
 	disabled?: boolean;
 };
 
@@ -11,6 +16,9 @@ const FlatButton: React.FC<FlatButtonProps> = ({
 	className,
 	loading,
 	disabled,
+	text,
+	loadingText,
+	icon: Icon,
 	...props
 }) => {
 	return (
@@ -22,7 +30,18 @@ const FlatButton: React.FC<FlatButtonProps> = ({
 			disabled={loading || disabled}
 			aria-disabled={loading || disabled}
 			{...props}
-		/>
+		>
+			<figure className="flex items-center justify-center">
+				{Icon &&
+					(loading ? (
+						<Spinner size={24} className="animate-spin" />
+					) : (
+						<Icon size={24} />
+					))}
+			</figure>
+
+			<span className="text-sm">{loading ? loadingText : text}</span>
+		</button>
 	);
 };
 

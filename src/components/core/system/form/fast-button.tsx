@@ -30,7 +30,7 @@ const FastButton: React.FC<FastButtonProps> = ({
 	return (
 		<button
 			className={cn(
-				"flex aspect-square h-full items-center justify-center rounded-lg transition-all disabled:pointer-events-none disabled:cursor-not-allowed",
+				"flex aspect-square h-full items-center justify-center rounded-lg transition-all disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70",
 				fastButtonTypes[type],
 				className,
 			)}

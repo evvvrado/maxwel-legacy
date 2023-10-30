@@ -2,42 +2,19 @@ import React from "react";
 
 import AvatarFrame from "@/components/core/system/avatar-frame";
 import RoleIcon from "@/components/includes/platform/role-icon";
-import {
-	getRandomChampion,
-	POSITION_ROLES,
-} from "@/constants/champions-constants";
+import { POSITION_ROLES } from "@/constants/champions-constants";
+import { useRandomMatchUpCard } from "@/hooks/use-random-matchup-card";
 
-type ChampionRandomCardProps = {
+type RandomMatchUpCardProps = {
 	lane: keyof typeof POSITION_ROLES;
 	trigger: number;
 };
 
-const ChampionRandomCard: React.FC<ChampionRandomCardProps> = ({
+const RandomMatchUpCard: React.FC<RandomMatchUpCardProps> = ({
 	lane,
 	trigger,
 }) => {
-	const roleName = POSITION_ROLES[lane].name;
-	const roleIndex = Object.keys(POSITION_ROLES).indexOf(lane);
-
-	const [champion, setChampion] = React.useState<
-		| {
-				fullName: string;
-				slugName: string;
-				alternativeName: string;
-		  }
-		| undefined
-	>();
-
-	React.useEffect(() => {
-		setChampion(undefined);
-
-		setTimeout(
-			() => {
-				setChampion(getRandomChampion(lane));
-			},
-			1000 * (roleIndex + 1),
-		);
-	}, [lane, roleIndex, trigger]);
+	const { roleName, champion } = useRandomMatchUpCard(lane, trigger);
 
 	if (!champion)
 		return (
@@ -75,4 +52,4 @@ const ChampionRandomCard: React.FC<ChampionRandomCardProps> = ({
 	);
 };
 
-export default ChampionRandomCard;
+export default RandomMatchUpCard;

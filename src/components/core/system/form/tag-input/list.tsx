@@ -6,14 +6,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTagInput } from "./root";
 
 const List: React.FC = () => {
-	const { tagList, removeTag } = useTagInput();
+	const { list, removeTag } = useTagInput();
 
-	if (!tagList.length) return;
+	if (!list.length) return;
 
 	return (
 		<ul className="mb-4 mt-3 flex flex-row flex-wrap gap-2">
 			<AnimatePresence>
-				{tagList.map((content) => (
+				{list.map((content) => (
 					<ListItem
 						key={content}
 						content={content}
@@ -41,6 +41,7 @@ const ListItem: React.FC<{ content: string; onClick: () => void }> = ({
 			<span className="text-xs font-bold">{content}</span>
 			<button
 				onClick={handleClick}
+				aria-label={`Remove ${content}`}
 				className="cursor-pointer group-hover:text-danger"
 			>
 				<X size={12} />

@@ -4,7 +4,7 @@ import { cn } from "@/app/styles/mixins";
 
 interface TagInputContext {
 	id: string;
-	tagList: string[];
+	list: string[];
 	insertTag: () => void;
 	removeTag: (tag: string) => void;
 	typingTag: string | undefined;
@@ -15,12 +15,15 @@ interface TagInputContext {
 const RootContext = React.createContext({} as TagInputContext);
 
 const Root: React.FC<
-	React.HTMLAttributes<HTMLDivElement> & { maxInputs: number }
-> = ({ id, maxInputs, ...props }) => {
+	React.HTMLAttributes<HTMLDivElement> & {
+		maxInputs: number;
+		list: string[];
+		setList: (list: string[]) => void;
+	}
+> = ({ id, maxInputs, list, setList, ...props }) => {
 	const customId = React.useId();
 
 	const [typingTag, setTypingTag] = React.useState<string>("");
-	const [tagList, setTagList] = React.useState<string[]>([]);
 
 	const [errorMessage, setErrorMessage] = React.useState<string>("");
 
@@ -29,15 +32,15 @@ const Root: React.FC<
 			return setErrorMessage("Please enter a value.");
 		}
 
-		if (tagList.includes(typingTag)) {
+		if (list.includes(typingTag)) {
 			return setErrorMessage("This input is already added.");
 		}
 
-		if (tagList.length >= maxInputs) {
+		if (list.length >= maxInputs) {
 			return setErrorMessage("Maximum input size reached.");
 		}
 
-		setTagList([...tagList, typingTag]);
+		setList([...list, typingTag]);
 		setTypingTag("");
 		setErrorMessage("");
 	};
@@ -45,12 +48,12 @@ const Root: React.FC<
 	const removeTag = (tag: string) => {
 		if (!tag) return;
 
-		setTagList([...tagList.filter((listItem) => listItem != tag)]);
+		setList([...list.filter((listItem) => listItem != tag)]);
 	};
 
 	const value = {
 		id: id || customId,
-		tagList,
+		list,
 		insertTag,
 		removeTag,
 		typingTag,

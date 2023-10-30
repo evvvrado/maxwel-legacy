@@ -23,12 +23,12 @@ const OtherFunctionCard: React.FC<{
 						systemFunctions[key as AsSystemFunctionsKeys];
 
 					return (
-						<li
-							key={key}
-							onClick={() => handle(key as AsSystemFunctionsKeys)}
-						>
+						<li key={key}>
 							<button
 								className="relative w-full gap-4 rounded-lg bg-gray-100 px-4 py-2 text-left text-gray-600 transition-colors hover:bg-gray-200 dark:bg-gray-800  dark:text-gray-300 dark:hover:bg-gray-700"
+								onClick={() =>
+									handle(key as AsSystemFunctionsKeys)
+								}
 								aria-label={`Select to ${name}`}
 							>
 								<span className="text-xs uppercase">

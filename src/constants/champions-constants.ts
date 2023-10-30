@@ -222,7 +222,7 @@ export const getRandomChampion = (lane: keyof typeof POSITION_ROLES) => {
 
 	if (!laneChampions) return;
 
-	const randomChampionId = getRandomNumber(0, laneChampions.length);
+	const randomChampionId = getRandomNumber(0, laneChampions.length - 1);
 	const selectedChampionId = laneChampions[randomChampionId];
 
 	if (!selectedChampionId) return;
