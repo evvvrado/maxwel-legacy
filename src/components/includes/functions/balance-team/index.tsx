@@ -9,6 +9,7 @@ import * as Form from "@/components/core/system/form";
 import TemplateFrame from "@/components/core/system/template-frame";
 import { useBalanceTeam } from "@/hooks/use-balance-team";
 
+import BalanceTeamSkeleton from "./skeleton";
 import BalanceTeamTable from "./table";
 
 const BalanceTeam: React.FC = () => {
@@ -74,23 +75,7 @@ const BalanceTeam: React.FC = () => {
 							/>
 						</>
 					) : (
-						<div className="w-full">
-							<div className="h-8 w-full animate-pulse rounded-lg border-gray-200 border  border-solid bg-gray-200 dark:bg-gray-900 dark:border-gray-800" />
-
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-
-							<div className="h-8 mt-4 w-full animate-pulse rounded-lg border-gray-200 border  border-solid bg-gray-200 dark:bg-gray-900 dark:border-gray-800" />
-
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-							<div className="h-8 mt-2 w-full animate-pulse  bg-gray-100 dark:bg-gray-900" />
-						</div>
+						<BalanceTeamSkeleton />
 					)}
 				</div>
 			)}
