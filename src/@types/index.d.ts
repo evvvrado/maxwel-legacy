@@ -168,6 +168,7 @@ type TeamList = {
 };
 
 type SummonerKda = {
+	puuid: string;
 	name: string;
 	kills: number;
 	deaths: number;

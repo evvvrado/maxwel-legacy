@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import {
 	checkCacheSummoner,
@@ -23,6 +23,7 @@ export const SummonerProvider: React.FC<{ children: React.ReactNode }> = (
 	props,
 ) => {
 	const router = useRouter();
+	const pathName = usePathname();
 
 	const [summonerInfo, setSummonerInfo] = React.useState<
 		Summoner | undefined
@@ -37,8 +38,7 @@ export const SummonerProvider: React.FC<{ children: React.ReactNode }> = (
 				router.push("/identify");
 			} else {
 				setSummonerInfo(cacheInfo.summonerInfo);
-
-				router.push("/painel");
+				if (pathName != "/lab") router.push("/painel");
 			}
 			return cacheInfo;
 		} catch (error) {
