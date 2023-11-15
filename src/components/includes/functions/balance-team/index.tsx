@@ -9,7 +9,7 @@ import * as Form from "@/components/core/system/form";
 import TemplateFrame from "@/components/core/system/template-frame";
 import { useBalanceTeam } from "@/hooks/use-balance-team";
 
-import BalanceTeamSkeleton from "./skeleton";
+import StepIndicator from "./step-indicator";
 import BalanceTeamTable from "./table";
 
 const BalanceTeam: React.FC = () => {
@@ -20,6 +20,7 @@ const BalanceTeam: React.FC = () => {
 		isVerifying,
 		dividedTeams,
 		isVerified,
+		currentStep,
 	} = useBalanceTeam();
 
 	return (
@@ -75,7 +76,29 @@ const BalanceTeam: React.FC = () => {
 							/>
 						</>
 					) : (
-						<BalanceTeamSkeleton />
+						<div className="w-full flex flex-col gap-2">
+							<StepIndicator
+								step={0}
+								currentStep={currentStep}
+								text="Summoner Verification"
+							/>
+
+							<StepIndicator
+								currentStep={currentStep}
+								step={1}
+								text="Retrieving Match Data"
+							/>
+							<StepIndicator
+								currentStep={currentStep}
+								step={2}
+								text="Calculating KDA Metrics"
+							/>
+							<StepIndicator
+								currentStep={currentStep}
+								step={3}
+								text="Team Balancing"
+							/>
+						</div>
 					)}
 				</div>
 			)}

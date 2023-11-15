@@ -20,10 +20,10 @@ const ActionCard: React.FC<{
 	return (
 		<BentoCard
 			icon={Target}
-			title={`ACTION CARD ${
+			title={` ${
 				selectedFunction !== undefined
-					? "- " + selectedFunction.name
-					: ""
+					? selectedFunction.name
+					: "ACTION CARD"
 			}`}
 			size={3.5}
 		>

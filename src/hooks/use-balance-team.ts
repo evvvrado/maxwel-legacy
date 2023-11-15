@@ -10,6 +10,8 @@ import {
 import { fetchSummoner, insertSummoner } from "@/api/supabase-api";
 
 export const useBalanceTeam = () => {
+	const [currentStep, setCurrentStep] = React.useState(0);
+
 	const [isVerified, setIsVerified] = React.useState(false);
 	const [isVerifying, setIsVerifying] = React.useState(false);
 
@@ -105,6 +107,8 @@ export const useBalanceTeam = () => {
 			}),
 		);
 
+		setCurrentStep(1);
+
 		await divideIntoTeams(summonerKdas);
 	};
 
@@ -176,6 +180,7 @@ export const useBalanceTeam = () => {
 		}
 
 		setDivideTeams(teams);
+		setCurrentStep(3);
 	};
 
 	return {
@@ -185,5 +190,6 @@ export const useBalanceTeam = () => {
 		isVerified,
 		dividedTeams,
 		handleVerifyList,
+		currentStep,
 	};
 };

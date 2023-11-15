@@ -27,7 +27,16 @@ export const insertSummoner = async ({
 }: SummonerKda) => {
 	const { data, error } = await supabase
 		.from("stored_summoners")
-		.insert([{ uuid, kills, deaths, assists, ratio }])
+		.insert([
+			{
+				uuid,
+				kills,
+				deaths,
+				assists,
+				ratio,
+				updated_at: new Date().toISOString(),
+			},
+		])
 		.select();
 
 	if (error) {
