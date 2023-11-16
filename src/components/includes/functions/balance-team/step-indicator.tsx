@@ -23,20 +23,40 @@ const StepIndicator: React.FC<{
 				duration: 0.2,
 			}}
 			className={`w-full flex gap-4 items-center rounded-full transition-colors px-4 py-2 ${
-				loading
-					? "bg-gray-50 border border-success  dark:bg-gray-950 dark:text-gray-50"
-					: "bg-gray-100  dark:bg-gray-800 dark:text-gray-50"
+				!loading
+					? "bg-gray-100 border border-success dark:bg-gray-800 dark:text-gray-50"
+					: "bg-gray-100  dark:bg-gray-800 dark:text-gray-50 animate-pulse"
 			}`}
 		>
 			<figure className="flex items-center justify-center">
 				{loading ? (
 					<Spinner size={24} className="animate-spin" />
 				) : (
-					<Check size={24} className="text-success" />
+					<Check size={24} className="text-success">
+						<animate
+							attributeName="fill"
+							values="transparent;currentColor"
+							dur=".2s"
+							repeatCount="1"
+						></animate>
+					</Check>
 				)}
 			</figure>
 
-			<span className="text-sm">{text}</span>
+			<div className="text-sm flex flex-col gap-2 h-5 overflow-hidden">
+				<motion.span
+					animate={{ y: loading ? 0 : -28 }}
+					className="block"
+				>
+					{text}
+				</motion.span>
+				<motion.span
+					animate={{ y: loading ? 0 : -28 }}
+					className="block"
+				>
+					{text}
+				</motion.span>
+			</div>
 		</motion.div>
 	);
 };

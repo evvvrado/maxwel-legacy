@@ -50,6 +50,8 @@ export const useBalanceTeam = () => {
 			}),
 		);
 
+		setCurrentStep(1);
+
 		const summonersKdasList = await getSummonersKdaFromMatchList(
 			notFetchedSummoners,
 			matchList,
@@ -94,6 +96,7 @@ export const useBalanceTeam = () => {
 				return summonerKda;
 			}),
 		);
+		setCurrentStep(2);
 
 		await Promise.all(
 			readyToInsertSummonersKdas.map(async (summonerKda) => {
@@ -107,9 +110,9 @@ export const useBalanceTeam = () => {
 			}),
 		);
 
-		setCurrentStep(1);
-
-		await divideIntoTeams(summonerKdas);
+		setTimeout(async () => {
+			await divideIntoTeams(summonerKdas);
+		}, 1000);
 	};
 
 	const handleDefineSummonersOrigin = async (list: Summoner[]) => {
@@ -169,18 +172,21 @@ export const useBalanceTeam = () => {
 			red: [],
 		};
 
-		for (const summonerKda of sortedNamesAndRatios) {
-			if (blueRatio <= redRatio) {
-				teams.blue.push(summonerKda);
-				blueRatio += summonerKda.ratio;
-			} else {
-				teams.red.push(summonerKda);
-				redRatio += summonerKda.ratio;
-			}
-		}
-
-		setDivideTeams(teams);
 		setCurrentStep(3);
+
+		setTimeout(() => {
+			for (const summonerKda of sortedNamesAndRatios) {
+				if (blueRatio <= redRatio) {
+					teams.blue.push(summonerKda);
+					blueRatio += summonerKda.ratio;
+				} else {
+					teams.red.push(summonerKda);
+					redRatio += summonerKda.ratio;
+				}
+			}
+
+			setDivideTeams(teams);
+		}, 1000);
 	};
 
 	return {
