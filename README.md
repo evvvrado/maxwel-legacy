@@ -9,7 +9,13 @@
 
 > Enhancing your custom games experience in League of Legends.
 
-This is a legacy version of Maxwel, a specialized League of Legends (LOL) platform that was designed exclusively for a small, close-knit group of friends who shared a passion for the game. Maxwel utilized the LOL API to access key player data, including ranks, performance metrics, and recent trends. This data was employed to create fair and engaging custom game experiences for our group, ensuring balanced teams and competitive matches. Furthermore, the legacy Maxwel version leveraged the OpenAI API to interpret user input and link it with various developed functions.
+Maxwel represents a bespoke League of Legends (LOL) platform crafted exclusively for a tight-knit circle of friends who share a deep passion for the game. In its legacy iteration, Maxwel harnessed the power of the LOL API to access critical player data—ranging from ranks and performance metrics to recent trends. This wealth of information served as the foundation for creating meticulously balanced and engaging custom game experiences within our group. The legacy Maxwel version went a step further by integrating the OpenAI API, enabling the interpretation of user input and seamlessly linking it with various developed functions.
+
+From the initial design of the authentication screen to the intricacies of crafting the database model for data collection, I have been hands-on in the entire project's development. This holistic involvement ensures that Maxwel is not just a gaming platform but a tailored experience, finely tuned to meet the unique dynamics and preferences of our gaming community. If there are specific queries or if assistance is needed with Maxwel or related development endeavors, please don't hesitate to reach out.
+
+<p align="center">
+  <img src="screens.png" width="1200">
+</p>
 
 ## ⚙️ What builds Maxwel?
 
