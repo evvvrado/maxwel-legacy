@@ -9,7 +9,7 @@
 
 > Enhancing your custom games experience in League of Legends.
 
-Maxwel is a specialized League of Legends (LOL) platform designed exclusively for a small, close-knit group of friends who share a passion for the game. Maxwel will use the LOL API to access key player data, including ranks, performance metrics, and recent trends. This data will be used to create fair and engaging custom game experiences for our group, ensuring balanced teams and competitive matches. And Maxwel utilizes the OpenAI API to interpret user input and link it with various developed functions.
+This is a legacy version of Maxwel, a specialized League of Legends (LOL) platform that was designed exclusively for a small, close-knit group of friends who shared a passion for the game. Maxwel utilized the LOL API to access key player data, including ranks, performance metrics, and recent trends. This data was employed to create fair and engaging custom game experiences for our group, ensuring balanced teams and competitive matches. Furthermore, the legacy Maxwel version leveraged the OpenAI API to interpret user input and link it with various developed functions.
 
 ## ⚙️ What builds Maxwel?
 
@@ -33,5 +33,6 @@ Maxwel is licensed under the MIT. For more details, see the [LICENSE](./LICENSE)
 ## 📖 Disclaimer
 
 Maxwel has no affiliation with Riot Games or League of Legends.
+This is a legacy version, new Maxwel Platform coming soon.
 
 #### ⚙️ forked from [ectoplate](https://github.com/evvvrado/ectoplate) - @evvvrado
